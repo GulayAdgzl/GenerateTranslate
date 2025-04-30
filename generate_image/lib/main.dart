@@ -1,6 +1,6 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
+import 'package:generate_image/dalle_image_generator.dart';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
