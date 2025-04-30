@@ -44,7 +44,7 @@ dependencies:
 
   # For using Lottie Animations
   lottie: ^3.1.2
-
+  icons_launcher: ^3.0.1
   # For Hive Database
   # hive: ^4.0.0-dev.2
   # isar_flutter_libs: ^4.0.0-dev.13
