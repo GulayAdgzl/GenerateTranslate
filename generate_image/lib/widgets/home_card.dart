@@ -23,25 +23,12 @@ class HomeCard extends StatelessWidget {
       child: InkWell(
         borderRadius: const BorderRadius.all(Radius.circular(20)),
         onTap: homeType.onTap,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              width: mq.width * .6,
-              padding: homeType.padding,
-              child: Lottie.asset('assets/lottie/${homeType.lottie}'),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              homeType.title,
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                letterSpacing: 1.2,
-              ),
-              textAlign: TextAlign.center,
-            ),
-          ],
+        child: Center(
+          child: Container(
+            width: mq.width * .6,
+            padding: homeType.padding,
+            child: Lottie.asset('assets/lottie/${homeType.lottie}'),
+          ),
         ),
       ),
     ).animate().fade(duration: 1.seconds, curve: Curves.easeIn);
