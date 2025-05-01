@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:generate_image/screens/feature/translator_feature.dart';
 import 'package:get/get.dart';
 
 enum HomeType { aiTranslator }
