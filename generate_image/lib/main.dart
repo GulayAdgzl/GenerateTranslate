@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:generate_image/dalle_image_generator.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
