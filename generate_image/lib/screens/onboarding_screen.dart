@@ -1,4 +1,5 @@
 import 'package:generate_image/model/onboard.dart';
+import 'package:generate_image/widgets/custom_btn.dart';
 
 import '../main.dart';
 import 'package:flutter/material.dart';
