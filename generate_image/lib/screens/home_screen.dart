@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:generate_image/helper/ad_helper.dart';
 import 'package:generate_image/helper/pref.dart';
+import 'package:generate_image/widgets/home_card.dart';
 import 'package:get/get.dart';
 
 import '../helper/global.dart';
