@@ -15,8 +15,8 @@ class HomeCard extends StatelessWidget {
     Animate.restartOnHotReload = true;
 
     return Card(
-      color: Colors.black12.withOpacity(.2),
-      elevation: 0,
+      color: Colors.transparent, // Tamamen şeffaf yapar
+      elevation: 0, // Gölgeyi kaldırır
       shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(20)),
       ),
