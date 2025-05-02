@@ -6,9 +6,5 @@ const appName = 'Ai Assistant';
 //media query to store size of device screen
 late Size mq;
 
-// TODO Chat Gpt Api key OR
-//  Google Gemini API Key - https://aistudio.google.com/app/apikey
-//  You need to Update it in your Appwrite Project or comment appwrite code and hardcord key here.
-
-// String apiKey = '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';
-String apiKey = '';
+String apiKey =
+    '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';
