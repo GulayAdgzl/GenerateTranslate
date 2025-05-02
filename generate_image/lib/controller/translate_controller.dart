@@ -3,7 +3,9 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:generate_image/api/apis.dart';
+import 'package:generate_image/model/translation_history.dart';
 import 'package:get/get.dart';
+import 'package:hive/hive.dart';
 
 import '../helper/my_dialog.dart';
 import 'image_controller.dart';
@@ -11,10 +13,35 @@ import 'image_controller.dart';
 class TranslateController extends GetxController {
   final textC = TextEditingController();
   final resultC = TextEditingController();
-
+  final history = <TranslationHistory>[].obs;
+  late final Box<TranslationHistory> historyBox;
   final from = ''.obs, to = ''.obs;
   final status = Status.none.obs;
+  @override
+  void onInit() {
+    super.onInit();
+    historyBox = Hive.box<TranslationHistory>('historyBox');
+    loadHistory();
+  }
 
+  void loadHistory() {
+    history.assignAll(historyBox.values.toList().reversed);
+  }
+
+  void addToHistory(TranslationHistory item) {
+    historyBox.add(item);
+    history.insert(0, item);
+  }
+
+  void deleteHistoryItem(int index) {
+    history[index].delete();
+    history.removeAt(index);
+  }
+
+  void clearHistory() {
+    historyBox.clear();
+    history.clear();
+  }
   // list of languages available
   // final lang = const [
   //   "Afar",
@@ -251,6 +278,15 @@ class TranslateController extends GetxController {
       if (textC.text.isEmpty) {
         MyDialog.info('Type Something to Translate!');
       }
+      final newItem = TranslationHistory(
+        originalText: textC.text,
+        translatedText: resultC.text,
+        fromLang: from.value,
+        toLang: to.value,
+        timestamp: DateTime.now(),
+      );
+
+      addToHistory(newItem);
     }
   }
 
