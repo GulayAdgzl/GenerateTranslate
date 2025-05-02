@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:generate_image/api/app_write.dart';
 import 'package:generate_image/helper/ad_helper.dart';
 import 'package:generate_image/helper/pref.dart';
 import 'package:generate_image/screens/splash_screen.dart';
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: appName,
+      title: "appName",
       debugShowCheckedModeBanner: false,
 
       themeMode: Pref.defaultTheme,
