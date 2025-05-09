@@ -3,12 +3,13 @@ import 'package:flutter/services.dart';
 import 'package:generate_image/api/app_write.dart';
 import 'package:generate_image/helper/ad_helper.dart';
 import 'package:generate_image/helper/pref.dart';
+
 import 'package:generate_image/screens/splash_screen.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  // init hive
+
   await Pref.initialize();
 
   // for app write initialization
@@ -16,9 +17,11 @@ Future<void> main() async {
 
   // for initializing facebook ads sdk
   AdHelper.init();
+
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   await SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
   runApp(const MyApp());
 }
 

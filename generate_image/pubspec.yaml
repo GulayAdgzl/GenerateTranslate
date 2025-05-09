@@ -78,9 +78,6 @@ dependencies:
   # For Google Language Translate
   translator_plus: ^1.0.1
 
-  # For Saving Image to Gallery
-  gallery_saver_updated: ^3.0.0
-
   # For Sharing Image
   share_plus: ^9.0.0
 

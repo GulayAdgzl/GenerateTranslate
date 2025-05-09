@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:dart_openai/dart_openai.dart';
 import 'package:flutter/material.dart';
-import 'package:gallery_saver_updated/gallery_saver.dart';
+
 import 'package:generate_image/api/apis.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart';
@@ -40,35 +40,6 @@ class ImageController extends GetxController {
       status.value = Status.complete;
     } else {
       MyDialog.info('Provide some beautiful image description!');
-    }
-  }
-
-  void downloadImage() async {
-    try {
-      //To show loading
-      MyDialog.showLoadingDialog();
-
-      log('url: $url');
-
-      final bytes = (await get(Uri.parse(url.value))).bodyBytes;
-      final dir = await getTemporaryDirectory();
-
-      final file = await File('${dir.path}/ai_image.png').writeAsBytes(bytes);
-
-      log('filePath: ${file.path}');
-      //save image to gallery
-      await GallerySaver.saveImage(file.path, albumName: appName)
-          .then((success) {
-        //hide loading
-        Get.back();
-
-        MyDialog.success('Image Downloaded to Gallery!');
-      });
-    } catch (e) {
-      //hide loading
-      Get.back();
-      MyDialog.error('Something Went Wrong (Try again in sometime)!');
-      log('downloadImageE: $e');
     }
   }
 
